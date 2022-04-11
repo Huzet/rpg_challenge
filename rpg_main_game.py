@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import math
+from os import system, name
 
 '''
 Code added by Tomas
@@ -10,11 +11,11 @@ def compass():
     print(f'''Compass:
     
                  ("north"){location.get("north", "")}
-                     
+                                               
         ("west"){location.get("west", "")} -- <+> -- ("east"){location.get("east", "")}
-                     
+                                               
                  ("south"){location.get("south", "")}
-    ''') 
+    ''', flush=True) 
 
 def mini_map(x_length, y_heigth):
     # create box
@@ -80,6 +81,11 @@ def update_mini_map(map, direction):
 # lets create map
 current_map = mini_map(5,5)
 
+def clear():
+    if name == 'nt':
+        _ = system('cls')
+    else:
+        _ = system('clear')
 '''
 Original code writen by Chad
 '''
@@ -96,6 +102,7 @@ Commands:
 ''')
 
 def showStatus():
+    clear()
     # print the player's current status
     compass()
     print("-----------MAP-------------")

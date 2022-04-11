@@ -1,3 +1,5 @@
+from os import system, name
+
 map = [['*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*'], ['*', '*', 'X', '*', '*'], ['*', '*', '*', '*', '*'], ['*', '*', '*', '*', '*']]
 
 def print_mini_map(map):
@@ -57,8 +59,17 @@ def update_map(map, direction):
 
     return map
 
+def clear():
+    # for windows
+    if name == 'nt':
+        _ = system('cls')
+    # for mac and linux(here, os.name is 'posix')
+    else:
+        _ = system('clear')
+
 
 while True:
+    clear()
     # print_mini_map(map)
     print_mini_map(map)
     user_input = input("Go? ")
